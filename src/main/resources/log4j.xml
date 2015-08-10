@@ -4,7 +4,7 @@
 
 	<appender name="infoAppender" class="org.apache.log4j.DailyRollingFileAppender">
 	    <param name="Encoding" value="UTF-8" />
-		<param name="File" value="/Users/LE/tmp/shop_web/stdout.log"/>
+		<param name="File" value="/Users/LE/tmp/java-mytest/stdout.log"/>
 		<param name="Append" value="true"/>
 		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
 		<layout class="org.apache.log4j.PatternLayout">
@@ -18,7 +18,7 @@
 	
 	<appender name="errorAppender" class="org.apache.log4j.DailyRollingFileAppender">
 	    <param name="Encoding" value="UTF-8" />
-		<param name="File" value="/Users/LE/tmp/shop_web/stderr.log"/>
+		<param name="File" value="/Users/LE/tmp/java-mytest/stderr.log"/>
 		<param name="Append" value="true"/>
 		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
 		<layout class="org.apache.log4j.PatternLayout">
