@@ -6,7 +6,7 @@
 		<id column="id" property="id"/>
 		<result column="userName" property="userName"/>
 		<result column="sex" property="sex"/>
-		<result column="birthday" property="bitthday"/>
+		<result column="birthday" property="birthday"/>
 	</resultMap>
 	
 	<sql id="ColumnsAll">
@@ -14,7 +14,7 @@
 			<if test="id != null">id,</if>
 			<if test="userName != null">userName,</if>
 			<if test="sex != null">sex,</if>
-			<if test="bitthday != null">birthday,</if>
+			<if test="birthday != null">birthday,</if>
 		</trim>
 	</sql>
 	<sql id="ValuesAll">
@@ -27,7 +27,7 @@
 	</sql>
 	
 	<select id="selectAll" resultMap="UserMap">
-		select <include refid="ColumnsAll"/> from user 
+		select * from user 
 	</select>
 	
 </mapper>

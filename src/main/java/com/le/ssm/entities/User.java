@@ -9,7 +9,7 @@ public class User implements Serializable{
    */
   private static final long serialVersionUID = 1L;
   private int id;
-  private String name;
+  private String userName;
   private boolean sex;
   private Date  birthday;
   /**
@@ -24,18 +24,7 @@ public class User implements Serializable{
   public void setId(int id) {
     this.id = id;
   }
-  /**
-   * @return the name
-   */
-  public String getName() {
-    return name;
-  }
-  /**
-   * @param name the name to set
-   */
-  public void setName(String name) {
-    this.name = name;
-  }
+
   /**
    * @return the sex
    */
@@ -60,13 +49,25 @@ public class User implements Serializable{
   public void setBirthday(Date birthday) {
     this.birthday = birthday;
   }
-  
+  /**
+   * @return the userName
+   */
+  public String getUserName() {
+    return userName;
+  }
+  /**
+   * @param userName the userName to set
+   */
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
   /* (non-Javadoc)
    * @see java.lang.Object#toString()
    */
   @Override
   public String toString() {
-    return "User [id=" + id + ", name=" + name + ", sex=" + sex + ", birthday=" + birthday + "]";
+    return "User [id=" + id + ", userName=" + userName + ", sex=" + sex + ", birthday=" + birthday
+        + "]";
   }
   
 }
