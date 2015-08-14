@@ -14,7 +14,7 @@
 			<if test="id != null">id,</if>
 			<if test="userName != null">userName,</if>
 			<if test="sex != null">sex,</if>
-			<if test="birthday != null">birthday,</if>
+			<if test="birthday != null">birthday</if>
 		</trim>
 	</sql>
 	<sql id="ValuesAll">
@@ -22,12 +22,12 @@
 			<if test="id != null">#{id},</if>
 			<if test="userName != null">#{userName},</if>
 			<if test="sex != null">#{sex},</if>
-			<if test="birthday != null">#{birthday},</if>
+			<if test="birthday != null">#{birthday}</if>
 		</trim>
 	</sql>
 	
 	<select id="selectAll" resultMap="UserMap">
-		select * from user 
+		select id,userName,sex,birthday from user 
 	</select>
 	
 </mapper>

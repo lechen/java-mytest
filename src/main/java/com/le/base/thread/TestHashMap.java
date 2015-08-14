@@ -32,7 +32,6 @@ public class TestHashMap {
 		testMap.cAdd("1");
 		System.out.println(testMap.cMap);
 		
-		
 	}
 	
 	
