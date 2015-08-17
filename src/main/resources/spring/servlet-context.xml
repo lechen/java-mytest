@@ -21,9 +21,49 @@
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
 	<aop:aspectj-autoproxy />
-
-	<import resource="classpath:spring/mybatis-config.xml"/>
+	<!-- 
 	<import resource="classpath:spring/db-context.xml"/>
+	 -->
+	 
+   <bean id="fastJsonMapNull" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">    
+       <property name="staticField" value="com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue" />    
+  </bean>
+  <bean id="fastJsonWriteNullString" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">    
+        <property name="staticField" value="com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty" />    
+  </bean>
+  <bean
+    class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+    <property name="messageConverters">
+      <list>
+        <bean
+          class="org.springframework.http.converter.StringHttpMessageConverter">
+          <property name="supportedMediaTypes">
+            <list>
+              <bean class="org.springframework.http.MediaType">
+                <constructor-arg index="0" value="text"></constructor-arg>
+                <constructor-arg index="1" value="plain"></constructor-arg>
+                <constructor-arg index="2" value="UTF-8"></constructor-arg>
+              </bean>
+              <bean class="org.springframework.http.MediaType">
+                <constructor-arg index="0" value="*"></constructor-arg>
+                <constructor-arg index="1" value="*"></constructor-arg>
+                <constructor-arg index="2" value="UTF-8"></constructor-arg>
+              </bean>
+            </list>
+          </property>
+        </bean>
+       	<!-- Support JSON -->
+        <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter" >
+        	<property name="features">
+        		<array>
+        			<ref bean="fastJsonMapNull" />
+        			<ref bean="fastJsonWriteNullString" />
+        		</array>
+        	</property>
+        </bean>
+      </list>
+    </property>
+  </bean>
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 	  <property name="fileEncoding" value="UTF-8" />

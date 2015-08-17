@@ -12,11 +12,12 @@ import com.le.ssm.service.UserService;
 @Service
 public class UserServiceImpl implements UserService{
   
-  @Autowired
-  private UserDao userDao;
+//  @Autowired
+//  private UserDao userDao;
   
   public List<User> selectAll() {
-    return userDao.selectAll();
+//    userDao.selectAll();
+    return null;
   }
 
 }

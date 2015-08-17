@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.le.ssm.common.properties.CodeProp;
 import com.le.ssm.service.UserService;
 
 @Controller
@@ -15,9 +16,13 @@ public class UserController {
   @Autowired
   private UserService userService;
   
+  @Autowired
+  private CodeProp codeProp;
+  
   @RequestMapping(value = "all", method = RequestMethod.GET)
   @ResponseBody
   public String getAll(){
-    return userService.selectAll().toString();
+//    userService.selectAll().toString() 
+    return codeProp.normal + " : " + codeProp.getMsg(codeProp.normal);
   }
 }
