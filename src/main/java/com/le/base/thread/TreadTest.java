@@ -1,6 +1,9 @@
 package com.le.base.thread;
 
 public class TreadTest extends Thread{
+  
+    private volatile int count = 0;
+    
 	public static void main(String[] args) {
 		TreadTest t = new TreadTest();
 		t.start();

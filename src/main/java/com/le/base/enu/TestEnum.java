@@ -6,9 +6,13 @@ public class TestEnum {
 //		System.out.println(w1.toString());
 //		System.out.println(w1.nextDay());
 		
-		TrafficLamp t1 = TrafficLamp.GREEN;
-		System.out.println(t1.nextLamp());
-		System.out.println(t1.nextLamp().name());
-		System.out.println(t1.nextLamp().getClass().getName());
+//	  System.out.println(WeekDay.MON);
+		
+//		TrafficLamp t1 = TrafficLamp.GREEN;
+//		System.out.println(t1.nextLamp());
+//		System.out.println(t1.nextLamp().name());
+//		System.out.println(t1.nextLamp().getClass().getName());
+	  
+//	  System.out.println(IntTest.a.getVal());
 	}
 }
