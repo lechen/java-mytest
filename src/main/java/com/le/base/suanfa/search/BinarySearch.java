@@ -1,11 +1,23 @@
-package com.le.other;
+package com.le.base.suanfa.search;
 
-public class OtherTest {
+/**
+ * 二分查找
+ * @author LE
+ *
+ */
+public class BinarySearch {
   public static void main(String[] args) {
-    int[] array = {0,1,2,3,5,7,9};
-    System.out.println(OtherTest.binarySearch(array, 9));
-    
+    int[] array = {1,2,3,5,7,9};
+    System.out.println(BinarySearch.binarySearch(array, 2));
   }
+  
+  /**
+   * 非递归
+   * @author LE
+   * @param srcArray
+   * @param des
+   * @return
+   */
   public static int binarySearch(int[] srcArray, int des){   
     int low = 0;   
     int high = srcArray.length-1;   
@@ -22,6 +34,15 @@ public class OtherTest {
     return -1;  
   }  
   
+  /**
+   * 递归
+   * @author LE
+   * @param dataset
+   * @param data
+   * @param beginIndex
+   * @param endIndex
+   * @return
+   */
   public static int binarySearch(int[] dataset,int data,int beginIndex,int endIndex){    
     int midIndex = (beginIndex+endIndex)/2;    
     if(data <dataset[beginIndex]||data>dataset[endIndex]||beginIndex>endIndex){  
@@ -34,6 +55,5 @@ public class OtherTest {
     }else {    
         return midIndex;    
     }    
-  }
-  
+}
 }
