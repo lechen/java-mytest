@@ -1,76 +1,75 @@
 package com.le.base.suanfa.sort;
 
+import java.util.Arrays;
+
 /**
  * 
  * @author LE
  *
  */
 public class QuickSort {
-  public static void quickSort(int[] array){  
-    if(array != null){  
-        quickSort(array, 0, array.length-1);  
+  private static int partition(int data[],int low,int high){//分治  
+    int key = data[low];  
+//    int key = data[(low + high)/2 + 1];  
+    while(low<high){  
+        //从右向左  
+        while(low<high && data[high]>key){
+          high--;  
+        }
+        data[low] = data[high];  
+              
+        //从左向右  
+        while(low<high && data[low]<key){
+          low++;  
+        }
+        data[high] = data[low];  
     }  
+    data[low] = key;//把轴元素放在轴所在地位置  
+    return low;//返回轴所在的位置  
   }  
   
-  private static void quickSort(int[] array,int beg,int end){  
-      if(beg >= end || array == null)  
-          return;  
-      int p = partition(array, beg, end);  
-      quickSort(array, beg, p-1);  
-      quickSort(array, p+1, end);  
-  }  
-  
-  private static int partition(int[] array, int beg, int end) {  
-    int first = array[beg];  
-    int i = beg, j = end;  
-    while (i < j) {  
-        while (array[i] <= first && i < end) {  
-            i++;  
-        }  
-        while (array[j] > first && j >= beg) {  
-            j--;  
-        }  
-        if (i < j) {  
-            array[i] = array[i] ^ array[j];  
-            array[j] = array[i] ^ array[j];  
-            array[i] = array[i] ^ array[j];  
-        }  
-    }  
-    if (j != beg) {  
-        array[j] = array[beg] ^ array[j];  
-        array[beg] = array[beg] ^ array[j];  
-        array[j] = array[beg] ^ array[j];  
-    }  
-    return j;  
+  private static void quickSort(int data[],int low,int high){//递归  
+      int q;  
+      if(low<high){  
+           q = partition(data,low,high);  
+           quickSort(data,q+1,high);  
+           quickSort(data,low,q-1);  
+      }  
   }  
   
   /**
-   * 第二种partition
+   * 最优
    * @author LE
-   * @param array
-   * @param beg
-   * @param end
-   * @return
+   * @param data
+   * @param low
+   * @param hight
    */
-  private static int partition2(int[] array,int beg,int end){  
-    int last = array[end];  
-    int i = beg -1;  
-    for (int j = beg; j <= end-1; j++) {  
-        if(array[j] <= last){  
-            i++;  
-            if(i != j){  
-                array[i] = array[i]^array[j];  
-                array[j] = array[i]^array[j];  
-                array[i] = array[i]^array[j];  
-            }  
-        }  
-    }  
-    if((i+1) != end){  
-        array[i+1] = array[i+1]^array[end];  
-        array[end] = array[i+1]^array[end];  
-        array[i+1] = array[i+1]^array[end];  
-    }  
-    return i+1;  
-  }  
+  private static void quickSort2(int data[], int low, int hight){
+    int i=low,j=hight;
+    int mid=data[(low+hight)/2 + 1];
+    while(i <= j){
+      while(data[i]<mid) i++;
+      while(data[j]>mid) j--;
+      if(i<=j){
+        int temp = data[i];
+        data[i] = data[j];
+        data[j] = temp;
+        i++;
+        j--;
+      }
+    }
+    if(i<hight) quickSort2(data, i, hight);
+    if(j>low) quickSort2(data, low, j);
+  }
+  
+  public static void main(String[] args) {
+    int[] a = {34,8,64,51,32,21};
+//    quickSort(array);
+//    System.out.println(array);
+    
+//    int a[] = new int[]{1,4,6,2,3,5,7};  
+    quickSort2(a,0,a.length -1);  
+    System.out.println(Arrays.toString(a));  
+  }
 
 }
