@@ -1,4 +1,4 @@
-package com.le.base.suanfa.search;
+package com.le.base.data.search;
 
 /**
  * 二分查找

@@ -1,10 +1,15 @@
-package com.le.base.data.structure.sort;
+package com.le.base.data.sort;
 
-public class MySort {
+/**
+ * 选择sort
+ * @author LE
+ *
+ */
+public class ChoiceSort {
 	
 	static int array [] = { 9, 2, 7, 19, 100, 97, 63, 208, 55, 78 };
 	public static void main(String[] args) {
-		MySort ms = new MySort();
+		ChoiceSort ms = new ChoiceSort();
 		//ms.insertSort();
 		ms.choiceSort();
 	}
@@ -32,23 +37,5 @@ public class MySort {
 			System.out.println(array[i]);
 		}
 	}
-	
-	public void insertSort(){
-		int tem;
-		int j = 0;
-		
-		for (int i = 0; i < array.length; i++) {
-			tem = array[i];
-			j = i - 1;
-			while (j >=0 && tem < array[j]) {
-				array[j+1] = array[j];
-				j--;
-			}
-			array[j+1] = tem;
-		}
-		
-		for (int i = 0; i < array.length; i++) {
-			System.out.println(array[i]);
-		}
-	}
+
 }

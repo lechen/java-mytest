@@ -1,4 +1,4 @@
-package com.le.base.suanfa.sort;
+package com.le.base.data.sort;
 
 import java.util.Arrays;
 
