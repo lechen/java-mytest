@@ -16,7 +16,6 @@ public class BinarySearch {
    * @author LE
    * @param srcArray
    * @param des
-   * @return
    */
   public static int binarySearch(int[] srcArray, int des){   
     int low = 0;   
@@ -33,7 +32,6 @@ public class BinarySearch {
     }  
     return -1;  
   }  
-  
   /**
    * 递归
    * @author LE
@@ -41,7 +39,6 @@ public class BinarySearch {
    * @param data
    * @param beginIndex
    * @param endIndex
-   * @return
    */
   public static int binarySearch(int[] dataset,int data,int beginIndex,int endIndex){    
     int midIndex = (beginIndex+endIndex)/2;    

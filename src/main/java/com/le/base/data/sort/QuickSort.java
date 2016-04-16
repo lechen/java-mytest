@@ -8,6 +8,13 @@ import java.util.Arrays;
  *
  */
 public class QuickSort {
+  /**
+   * 
+   * @param data
+   * @param low
+   * @param high
+   * @return
+   */
   private static int partition(int data[],int low,int high){//分治  
     int key = data[low];  
 //    int key = data[(low + high)/2 + 1];  
@@ -38,7 +45,7 @@ public class QuickSort {
   }  
   
   /**
-   * 最优
+   * 快排最优
    * @author LE
    * @param data
    * @param low
