@@ -40,11 +40,11 @@ public class SimpleTest {
     */
    public void nameless(){
      System.out.println("______in method");
-     new ActionListenner() {
-      public void actionPerformed(String name) {
-        System.out.println("---------nameless : " + beep);
-      }
-    };
+//     new ActionListenner() {
+//      public void actionPerformed(String name) {
+//        System.out.println("---------nameless : " + beep);
+//      }
+//    };
    }
    
    public static void main(String[] args) {
